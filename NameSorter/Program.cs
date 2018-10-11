@@ -17,10 +17,8 @@ namespace NameSorter
                 return;
             }
 
-            // Person service is a class that is used to manipulate the data for us, so it aids parsing, extracting and sorting the data
             PersonService personService = new PersonService();
 
-            // Sort the text file at the specified directory
             personService.sortPeopleByLastNameAndOutput(args[0]);
         }
     }

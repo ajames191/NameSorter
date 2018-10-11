@@ -42,7 +42,7 @@ namespace NameSorter
             foreach (string personAsString in fileParser.getPeople(filePath)) {
                 string[] personAsArray = personAsString.Split(' ');
                 if (personAsArray.Length > 4 ) {
-                    // Skips adding element to array if it has too many names.
+                    // Skips element if too many names.
                 } else { 
                     Person person = new Person();
 
