@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace NameSorter
 {
@@ -22,6 +23,7 @@ namespace NameSorter
             people = SortPeopleLastNameDesc();
 
             OutputSortedPeople();
+            StoreSortedPeople();
         }
 
         private void OutputSortedPeople() {
@@ -29,7 +31,20 @@ namespace NameSorter
                 Console.WriteLine(p.Forename + p.Surname);
             }
 
+
             // I would pause the console window with "Console.ReadKey();" here, but it breaks the tests.
+        }
+
+        private void StoreSortedPeople()
+        {
+            TextWriter textWriter = new StreamWriter("sorted-names-list.txt");
+
+            foreach (Person p in people)
+            {
+                textWriter.WriteLine(p.Forename + p.Surname);
+            }
+
+            textWriter.Close();
         }
 
         private List<Person> SortPeopleLastNameDesc() {
